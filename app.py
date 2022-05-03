@@ -36,10 +36,16 @@ elif(add_selectbox=="Student Details"):
     for i in range(len(new_df["# of Quests Completed"])):
         if(q[i]==20 and p[i]==40 ):
             new_df["Mine4"][i]="YES"
+            new_df["Mine3"][i]="YES"
+            new_df["Mine2"][i]="YES"
+            new_df["Mine1"][i]="YES"
         elif( p[i]>=30 and q[i]>=15 ):
             new_df["Mine3"][i]="YES"
+            new_df["Mine2"][i]="YES"
+            new_df["Mine1"][i]="YES"
         elif( p[i]>=20 and q[i]>=10 ):
             new_df["Mine2"][i]="YES"
+            new_df["Mine1"][i]="YES"
         elif(p[i]>=10 and q[i]>=5):
             new_df["Mine1"][i]="YES"
     
