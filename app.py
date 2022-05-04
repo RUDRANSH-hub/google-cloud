@@ -23,13 +23,13 @@ elif(add_selectbox=="Student Details"):
         
 
 
-    new_df = pd.read_csv("Kamla Nehru Institute of Technology, Sultanpur [29 Apr].csv")
+    new_df = pd.read_csv("data.csv")
     new_df=new_df.set_index("Student Name")
     # new_df=new_df.style.hide_index()
-    new_df["Mine1"]="NO"
-    new_df["Mine2"]="NO"
-    new_df["Mine3"]="NO"
-    new_df["Mine4"]="NO"
+    new_df["MileStone1"]="NO"
+    new_df["MileStone2"]="NO"
+    new_df["MileStone3"]="NO"
+    new_df["MileStone4"]="NO"
 
     p=list(new_df["# of Quests Completed"])
     q=list(new_df["# of Skill Badges Completed"])
