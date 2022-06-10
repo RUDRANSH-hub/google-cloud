@@ -37,7 +37,7 @@ elif(add_selectbox=="Student Details"):
         if(q[i]==20 and p[i]==40 ):
             new_df["MileStone4"][i]="YES"
             new_df["MileStone3"][i]="YES"
-            new_df["MileStone"][i]="YES"
+            new_df["MileStone2"][i]="YES"
             new_df["MileStone1"][i]="YES"
         elif( p[i]>=30 and q[i]>=15 ):
             new_df["MileStone3"][i]="YES"
