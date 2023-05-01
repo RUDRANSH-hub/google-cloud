@@ -42,7 +42,8 @@ elif(add_selectbox=="Student Details"):
     
 
 #     new_df['link'] = new_df.apply(lambda x: make_clickable('https://youtube.com/', x['Student Email']), axis=1)
-    new_df['link'] = new_df['Student Email'].apply(make_clickable)
+    new_df['link']="https://youtube.com"
+    new_df['link'] = new_df['link'].apply(make_clickable)
 #     df.style
     new_df=new_df.set_index("Student Name")
     # new_df=new_df.style.hide_index()
