@@ -3,8 +3,11 @@ import streamlit as st
 from developer import developer
 
 
-def make_clickable(url, name):
-    return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
+def make_clickable(link):
+    # target _blank to open new window
+    # extract clickable text to display for your link
+    text = link.split('=')[0]
+    return f'<a target="_blank" href="{link}">{text}</a>'
     
 
 # link is the column with hyperlinks
@@ -27,6 +30,7 @@ elif(add_selectbox=="Student Details"):
 #         df.to_html(escape=False, index=False), unsafe_allow_html=True
 #         df['Student Email'] = f'<a href="{df['Student Email'][df["Student Email"]==str(email)]}">{df['Student Email'][df["Student Email"]==str(email)]}</a>'
 #         st.write(df[Student Email]["Student Email"]==str(email))
+        df['link'] = df['Student Email'].apply(make_clickable)
         
         return (df[df["Student Email"]==str(email)])
         
@@ -71,9 +75,9 @@ elif(add_selectbox=="Student Details"):
     email=st.text_input("Enter your mail")
     res=get_info(str(email),new_df)
     res=res.drop(columns=["Student Email","Google Cloud Skills Boost Profile URL","Institution","Enrolment Date & Time","Enrolment Status"],axis=1)
-    res['link'] = res['link'].apply(make_clickable)
-    res = res.to_html(escape=False)
+    
     
     Button=st.button("Get_data")
     if Button :
-        st.write(res, unsafe_allow_html=True)
+        st.table(res)
+        st.write(res['link'])
