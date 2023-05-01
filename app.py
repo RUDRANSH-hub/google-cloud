@@ -25,7 +25,7 @@ elif(add_selectbox=="Student Details"):
     def get_info(email,df):
 
 #         df.to_html(escape=False, index=False), unsafe_allow_html=True
-        df['Student Email'] = make_clickable(df['Student Email'], df['Student Email'])
+        df['Student Email'] = make_clickable('https://youtube.com/', df['Student Email'])
         return (df[df["Student Email"]==str(email)])
         
         
