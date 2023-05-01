@@ -1,6 +1,15 @@
 import pandas as pd
 import streamlit as st
 from developer import developer
+
+def make_clickable(link):
+    # target _blank to open new window
+    # extract clickable text to display for your link
+    text = link.split('=')[1]
+    return f'<a target="_blank" href="{link}">{text}</a>'
+
+# link is the column with hyperlinks
+
 add_selectbox = st.sidebar.selectbox("Details/Developer",("Student Details","Developer")
 )
 if add_selectbox== "Developer":
@@ -16,7 +25,8 @@ elif(add_selectbox=="Student Details"):
     st.header("Kamla Nehru Institute of Technology")
     def get_info(email,df):
 
-        df.to_html(escape=False, index=False), unsafe_allow_html=True
+#         df.to_html(escape=False, index=False), unsafe_allow_html=True
+        make_clickable(email)
         return (df[df["Student Email"]==str(email)])
         
         
