@@ -71,6 +71,9 @@ elif(add_selectbox=="Student Details"):
     email=st.text_input("Enter your mail")
     res=get_info(str(email),new_df)
     res=res.drop(columns=["Student Email","Google Cloud Skills Boost Profile URL","Institution","Enrolment Date & Time","Enrolment Status"],axis=1)
+    res['link'] = res['link'].apply(make_clickable)
+    res = res.to_html(escape=False)
+    
     Button=st.button("Get_data")
     if Button :
-        st.table(res)
+        st.write(res, unsafe_allow_html=True)
