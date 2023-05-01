@@ -80,5 +80,6 @@ elif(add_selectbox=="Student Details"):
     
     Button=st.button("Get_data")
     if Button :
-        st.table(res)
-        st.write(res['link'])
+        st.write(res.to_html(escape=False, index=False), unsafe_allow_html=True)
+#         st.table(res)
+#         st.write(res['link'])
