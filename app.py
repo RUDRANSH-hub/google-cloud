@@ -1,10 +1,10 @@
 import pandas as pd
 import streamlit as st
 from developer import developer
+
+
 def make_clickable(url, name):
     return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
-
-
     
 
 # link is the column with hyperlinks
@@ -25,7 +25,7 @@ elif(add_selectbox=="Student Details"):
     def get_info(email,df):
 
 #         df.to_html(escape=False, index=False), unsafe_allow_html=True
-        df['Student Email'] = f'<a href="{df['Student Email'][df["Student Email"]==str(email)]}">{df['Student Email'][df["Student Email"]==str(email)]}</a>'
+#         df['Student Email'] = f'<a href="{df['Student Email'][df["Student Email"]==str(email)]}">{df['Student Email'][df["Student Email"]==str(email)]}</a>'
 #         st.write(df[Student Email]["Student Email"]==str(email))
         
         return (df[df["Student Email"]==str(email)])
@@ -35,6 +35,10 @@ elif(add_selectbox=="Student Details"):
 
 
     new_df = pd.read_csv("data.csv")
+    
+
+    df['link'] = df.apply(lambda x: make_clickable('https://youtube.com/', x['Student Email']), axis=1)
+#     df.style
     new_df=new_df.set_index("Student Name")
     # new_df=new_df.style.hide_index()
     new_df["MileStone1"]="NO"
