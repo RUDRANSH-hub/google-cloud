@@ -16,7 +16,7 @@ elif(add_selectbox=="Student Details"):
     st.header("Kamla Nehru Institute of Technology")
     def get_info(email,df):
 
-        st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+        df=df.to_html(escape=False, index=False), unsafe_allow_html=True)
         return (df[df["Student Email"]==str(email)])
         
         
