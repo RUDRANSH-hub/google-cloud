@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 from developer import developer
+def make_clickable(url, name):
+    return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
 
 
     
@@ -23,7 +25,7 @@ elif(add_selectbox=="Student Details"):
     def get_info(email,df):
 
 #         df.to_html(escape=False, index=False), unsafe_allow_html=True
-        df['email']=(f'<a target="_blank" href="{email}">{email}</a>')
+        df['Student Email'] = df.apply(lambda x: make_clickable(x['Student Email'], x['Student Email']), axis=1)
         return (df[df["Student Email"]==str(email)])
         
         
