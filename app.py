@@ -25,9 +25,10 @@ elif(add_selectbox=="Student Details"):
     def get_info(email,df):
 
 #         df.to_html(escape=False, index=False), unsafe_allow_html=True
-#         df['Student Email'] = f'<a href="{}">{val}</a>'
+        df['Student Email'] = f'<a href="{df['Student Email'][df["Student Email"]==str(email)]}">{df['Student Email'][df["Student Email"]==str(email)]}</a>'
 #         st.write(df[Student Email]["Student Email"]==str(email))
-        return (df['Student Email'][df["Student Email"]==str(email)])
+        
+        return (df[df["Student Email"]==str(email)])
         
         
         
